@@ -1,0 +1,16 @@
+aviVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kurbernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-reges: true
+spec:
+  rules:
+    - host: ticketing.dev
+      http:
+        paths:
+          - path: /api/users/?(.*)
+            backend:
+              serviceName: auth-srv
+              servicePort: 3000
