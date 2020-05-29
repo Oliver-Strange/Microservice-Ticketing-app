@@ -1,10 +1,10 @@
-aviVersion: extensions/v1beta1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress-service
   annotations:
     kurbernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/use-reges: true
+    nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
     - host: ticketing.dev
