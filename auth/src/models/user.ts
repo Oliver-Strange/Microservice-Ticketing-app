@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
   },
+  // defining how the response data is formed
   {
     toJSON: {
       transform(doc, ret) {
