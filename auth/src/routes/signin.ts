@@ -9,7 +9,7 @@ import { BadRequestError } from '../errors/bad-request-error';
 
 const router = express.Router();
 
-router.get(
+router.post(
   '/api/users/signin',
   [
     body('email').isEmail().withMessage('Email must be valid'),
@@ -40,11 +40,9 @@ router.get(
       process.env.JWT_KEY!
     );
     // Store it on session object
-    req.session = {
-      jwt: userJwt,
-    };
+    req.session!['jwt'] = userJwt;
 
-    res.status(201).send(existingUser);
+    res.status(200).send(existingUser);
   }
 );
 
