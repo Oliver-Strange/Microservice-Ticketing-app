@@ -8,8 +8,7 @@ import { signupRouter } from './routes/signup';
 import { signinRouter } from './routes/signin';
 import { signoutRouter } from './routes/signout';
 
-import { errorHandler } from './middlewares/error-handler';
-import { NotFoundError } from './errors/not-found-error';
+import { errorHandler, NotFoundError } from '@osorg/common-middleware';
 
 const app = express();
 app.set('trust proxy', true);

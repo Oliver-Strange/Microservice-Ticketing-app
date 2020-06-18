@@ -1,6 +1,5 @@
 import request from 'supertest';
 import { app } from '../../app';
-import { response } from 'express';
 
 it('clears the cookie after signing out', async () => {
   await request(app)
