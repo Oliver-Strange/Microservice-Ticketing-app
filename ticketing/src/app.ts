@@ -3,7 +3,8 @@ import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 
-import { errorHandler, NotFoundError } from '@osorg/common-middleware';
+import { errorHandler, NotFoundError, currentUser } from '@osorg/common-middleware';
+import { createTicketRouter } from './routes/new';
 
 const app = express();
 app.set('trust proxy', true);
@@ -14,6 +15,10 @@ app.use(
     secure: process.env.NODE_ENV !== 'test',
   })
 );
+
+app.use(currentUser);
+
+app.use(createTicketRouter);
 
 // checks incoming request for route that doesn't exist
 // throwing a new error for the errorHandler to deal with
