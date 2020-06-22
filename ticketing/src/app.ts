@@ -5,6 +5,8 @@ import cookieSession from 'cookie-session';
 
 import { errorHandler, NotFoundError, currentUser } from '@osorg/common-middleware';
 import { createTicketRouter } from './routes/new';
+import { showTicketRouter } from './routes/show';
+import { indexTicketRouter } from './routes/index';
 
 const app = express();
 app.set('trust proxy', true);
@@ -19,6 +21,8 @@ app.use(
 app.use(currentUser);
 
 app.use(createTicketRouter);
+app.use(showTicketRouter);
+app.use(indexTicketRouter);
 
 // checks incoming request for route that doesn't exist
 // throwing a new error for the errorHandler to deal with
