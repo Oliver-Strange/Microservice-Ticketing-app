@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
-import { body } from 'express-validator';
-import { requireAuth, validateRequest, NotFoundError } from '@osorg/common-middleware';
+import { NotFoundError } from '@osorg/common-middleware';
 import { Ticket } from '../models/ticket';
 
 const router = express.Router();
