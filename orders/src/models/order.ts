@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
 import { OrderStatus } from '@osorg/common-middleware';
+import { TicketDoc } from './ticket';
+
+// exporting order status to condense imports in other files
+export { OrderStatus };
 
 // An interface that describes the properties
 // that are required to create a new Order
