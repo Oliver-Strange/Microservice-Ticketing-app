@@ -1,7 +1,7 @@
 import { Message } from 'node-nats-streaming';
 import { Subjects, Listener, TicketCreatedEvent } from '@osorg/common-middleware';
 import { Ticket } from '../../models/ticket';
-import { queueGroupName } from '../listeners/queue-group-name';
+import { queueGroupName } from './queue-group-name';
 
 export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
   subject: Subjects.TicketCreated = Subjects.TicketCreated;
