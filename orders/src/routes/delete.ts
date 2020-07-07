@@ -1,11 +1,6 @@
 import express, { Request, Response } from 'express';
-import {
-  requireAuth,
-  NotFoundError,
-  NotAuthorizedError,
-  OrderStatus,
-} from '@osorg/common-middleware';
-import { Order } from '../models/order';
+import { requireAuth, NotFoundError, NotAuthorizedError } from '@osorg/common-middleware';
+import { Order, OrderStatus } from '../models/order';
 import { OrderCancelledPublisher } from '../events/publishers/order-cancelled-publisher';
 import { natsWrapper } from '../nats-wrapper';
 
@@ -31,6 +26,7 @@ router.delete('/api/orders/:orderId', requireAuth, async (req: Request, res: Res
     ticket: {
       id: order.ticket.id,
     },
+    version: order.version,
   });
 
   res.status(204).send(order);

@@ -10,7 +10,7 @@ it('marks an order as cancelled', async () => {
   const ticket = Ticket.build({
     title: 'aTitle',
     price: 20,
-    id: new mongoose.Types.ObjectId().toHexString(),
+    id: mongoose.Types.ObjectId().toHexString(),
   });
   await ticket.save();
 
@@ -35,7 +35,7 @@ it('emits an event saying the order was cancelled', async () => {
   const ticket = Ticket.build({
     title: 'aTitle',
     price: 20,
-    id: new mongoose.Types.ObjectId().toHexString(),
+    id: mongoose.Types.ObjectId().toHexString(),
   });
   await ticket.save();
 
