@@ -8,6 +8,8 @@ import { PaymentCreatedListener } from "./events/listeners/payment-created-liste
 
 // connecting to the mongodb via mongoose
 const start = async () => {
+  console.log("Now Starting Orders Services...");
+
   console.log("Starting Orders Service...");
 
   if (!process.env.JWT_KEY) {
