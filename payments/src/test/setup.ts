@@ -1,7 +1,5 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
-import request from "supertest";
-import { app } from "../app";
 import jwt from "jsonwebtoken";
 
 // add property signin to ts
@@ -14,6 +12,9 @@ declare global {
 }
 
 jest.mock("../nats-wrapper");
+
+process.env.STRIPE_KEY =
+  "sk_test_51H5HPgHDMW9LMkx7grz2kMgePHZnTXotofbZ5zPtlXZx5UeEFvHsmCMrbhz5emh0RR4mJl6knEgW7YDS4OGI2vnS007orvnFR7";
 
 let mongo: any;
 
