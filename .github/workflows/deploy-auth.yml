@@ -20,6 +20,6 @@ jobs:
       - run: docker push oliverstrange/auth
       - uses: digitalocean/action-doctl@v2
         with:
-          toekn: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}
+          token: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}
       - run: doctl kubernetes cluster kubecongfig save ticketing
       - run: kubectl rollout restart deployment auth-depl
